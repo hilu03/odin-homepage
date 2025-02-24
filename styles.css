@@ -6,8 +6,14 @@
   --roboto: "Roboto", sans-serif;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
 }
@@ -32,7 +38,6 @@ header .bg {
 }
 
 header .about-me {
-  width: 400px;
   padding: 20px;
   box-shadow: 2px 2px 1px rgba(187, 187, 187, 0.5);
   display: flex;
@@ -101,12 +106,12 @@ main {
 main .work-title {
   font-family: var(--playfair);
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 main .project-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
   gap: 40px;
 }
 
@@ -130,6 +135,7 @@ main .project .screenshot {
   color: white;
   font-family: var(--playfair);
   font-size: 2rem;
+  text-align: center;
 }
 
 main .project .title {
@@ -211,4 +217,126 @@ footer .social-media-container {
 footer .icon-container {
   width: 30px;
   height: 30px;
+}
+
+@media (max-width: 1024px) {
+  main .project-container {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+
+  header .bg {
+    clip-path: polygon(0 0, 100% 0, 100% 250px, 0 480px);
+  }
+
+  header .portrait-container {
+    width: 100%;
+  }
+
+  header .portrait-container img {
+    width: 100%;
+    height: 500px;
+    object-position: 45%;
+  }
+
+  header .portrait-container .my-name {
+    font-size: 5rem;
+    text-align: justify;
+    padding-left: 20px;
+  }
+
+  header .about-me {
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    width: 100%;
+  }
+
+  header .about-me .title,
+  main .work-title,
+  footer .contact .title {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  header .about-me .content {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  header .social-media {
+    align-self: center;
+    gap: 20px;
+  }
+
+  main .project-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  main {
+    margin: 40px;
+  }
+
+  main .project {
+    padding-bottom: 40px;
+  }
+
+  main .project .screenshot {
+    padding: 10px;
+    font-size: 2.5rem;
+  }
+
+  header .icon-container,
+  footer .contact .icon
+  footer .icon-container {
+    width: 40px;
+    height: 40px;
+  }
+
+  footer .icon-container img {
+    width: 40px;
+    height: 40px;
+  }
+
+  footer {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  footer .icon {
+    display: none;
+  }
+
+  footer .content,
+  footer .address,
+  footer .phone,
+  footer .mail-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  footer .social-media-container {
+    justify-content: center;
+  }
+
+  footer .contact,
+  footer .right-side {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  footer .right-side {
+    float: none;
+    margin-top: 40px;
+  }
+
+  footer .right-side img {
+    height: auto;
+  }
 }
