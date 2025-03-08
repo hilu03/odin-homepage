@@ -26,6 +26,12 @@ header {
   position: relative;
 }
 
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 header .bg {
   background-color: var(--bg);
   width: 100%;
@@ -40,12 +46,13 @@ header .bg {
 header .about-me {
   padding: 20px;
   box-shadow: 2px 2px 1px rgba(187, 187, 187, 0.5);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: 400px;
   background-color: white;
-  gap: 15px;
+}
+
+.about-me p {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 header .portrait-container {
@@ -67,10 +74,10 @@ header .portrait-container .my-name {
   left: 0; 
   right: 0; 
   text-align: center;
-  width: 100%;
 }
 
 header .social-media {
+  float: right;
   display: flex;
   align-self: flex-end;
   gap: 10px;
@@ -111,14 +118,13 @@ main .work-title {
 
 main .project-container {
   display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);  
   gap: 40px;
 }
 
 main .project {
   box-shadow: 2px 2px 2px rgba(143, 143, 143, 0.5),
               -2px 2px 2px rgba(143, 143, 143, 0.5);
-  /* width: 300px; */
   height: 400px;
 }
 
@@ -220,6 +226,46 @@ footer .icon-container {
 }
 
 @media (max-width: 1024px) {
+  header .bg {
+    clip-path: polygon(0 0, 100% 0, 100% 230px, 0 400px);
+  }
+
+  .wrap {
+    display: block !important;
+    font-size: 16px;
+  }
+
+  header .portrait-container {
+    float: left;
+    margin-left: -30px;
+  }
+
+  header .title {
+    text-align: center;
+  }
+
+  .portrait-container img {
+    width: 250px !important;
+    height: 250px !important;
+    margin-right: 20px;
+  }
+
+  header .my-name {
+    top: 3px;
+    right: 0;
+    text-align: right !important;
+    translate: 40%;
+  }
+
+  header .about-me {
+    padding: 50px 60px !important;
+    margin-top: 50px;
+  }
+
+  header .social-media {
+    display: none;
+  }
+
   main .project-container {
     grid-template-columns: repeat(2, minmax(300px, 1fr));
   }
@@ -227,8 +273,11 @@ footer .icon-container {
 }
 
 @media (max-width: 768px) {
-  header {
+  .wrap {
+    display: flex !important;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   header .bg {
@@ -237,18 +286,31 @@ footer .icon-container {
 
   header .portrait-container {
     width: 100%;
+    float: none;
+    margin: 0;
+  }
+
+  header .social-media {
+    display: flex;
+    align-self: flex-end;
+    gap: 10px;
   }
 
   header .portrait-container img {
-    width: 100%;
-    height: 500px;
+    width: 100% !important;
+    height: 500px !important;
     object-position: 45%;
   }
 
   header .portrait-container .my-name {
     font-size: 5rem;
-    text-align: justify;
+    text-align: justify !important;
     padding-left: 20px;
+    top: auto;
+    bottom: 2% !important;
+    left: 0 !important; 
+    right: 0 !important;
+    translate: none !important;
   }
 
   header .about-me {
@@ -256,6 +318,7 @@ footer .icon-container {
     align-items: center;
     box-shadow: none;
     width: 100%;
+    margin: 0;
   }
 
   header .about-me .title,
@@ -271,7 +334,8 @@ footer .icon-container {
   }
 
   header .social-media {
-    align-self: center;
+    justify-content: center;
+    float: none;
     gap: 20px;
   }
 
